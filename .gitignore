@@ -1,2 +1,3 @@
 *.log
 **/data/**
+server/whos-next/node_modules/**
