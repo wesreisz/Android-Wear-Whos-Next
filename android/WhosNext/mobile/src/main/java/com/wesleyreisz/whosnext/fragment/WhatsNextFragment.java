@@ -31,18 +31,21 @@ import java.util.List;
  */
 public class WhatsNextFragment extends Fragment {
     private static final String TAG = "WhosNext";
-    private View view;
 
     private List<Team> teams;
     private List<String> teamNames = new ArrayList<String>();
 
-    private TextView txtMessage;
-    private Spinner spinner;
+    TextView txtMessage;
+    Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        this.view =  inflater.inflate(R.layout.fragment_whats_next, container, false);
+        return inflater.inflate(R.layout.fragment_whats_next, container, false);
+    }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         String msg;
         if(isConnected()) {
             msg="Getting Data";
@@ -50,17 +53,14 @@ public class WhatsNextFragment extends Fragment {
         }else{
             msg="You are not Connected to the Internet";
         }
-        txtMessage = (TextView)view.findViewById(R.id.txtMessages);
+        txtMessage = (TextView)getActivity().findViewById(R.id.txtMessages);
         txtMessage.setText(msg);
 
-        return view;
     }
 
     private void buildSpinner() {
         if(teamNames!=null && teamNames.size()>0) {
-            Log.d(TAG, "Teams size: " + teamNames.size());
-
-            spinner = (Spinner) view.findViewById(R.id.spinnerTeams);
+            spinner = (Spinner) getActivity().findViewById(R.id.spinnerTeams);
             spinner.setAdapter(new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_spinner_dropdown_item,
                     teamNames));
@@ -82,16 +82,16 @@ public class WhatsNextFragment extends Fragment {
 
     private void buildNextOpponent(Team team) {
         if(team!=null && team.getSchedule()!=null){
-            TextView textViewOpponentMessage = (TextView)view.findViewById(R.id.txtNextOpponentMessage);
+            TextView textViewOpponentMessage = (TextView)getActivity().findViewById(R.id.txtNextOpponentMessage);
             textViewOpponentMessage.setText("Next Opponent:");
 
-            TextView textViewOpponent = (TextView)view.findViewById(R.id.txtNextOpponent);
+            TextView textViewOpponent = (TextView)getActivity().findViewById(R.id.txtNextOpponent);
             textViewOpponent.setText(team.getSchedule().get(0).getTeam());
 
-            TextView textViewLocation = (TextView)view.findViewById(R.id.txtLocation);
+            TextView textViewLocation = (TextView)getActivity().findViewById(R.id.txtLocation);
             textViewLocation.setText(team.getSchedule().get(0).getLocation());
 
-            TextView textViewTime = (TextView)view.findViewById(R.id.txtDateTime);
+            TextView textViewTime = (TextView)getActivity().findViewById(R.id.txtDateTime);
             textViewTime.setText(
                 team.getSchedule().get(0).getDate() + " (" +
                 team.getSchedule().get(0).getTime() + ")"
