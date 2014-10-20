@@ -1,8 +1,11 @@
+//start mongo daemon
+./mongod --dbpath /Users/wesleyreisz/work/node/nodetest2/data
+
 Wesleys-MacBook-Pro-2:bin wesleyreisz$ ./mongo
 MongoDB shell version: 2.6.5
 connecting to: test
-> use whats-next;
-switched to db whats-next
+> use teamlist;
+switched to db teamlist
 
 //check format
 http://jsonformatter.curiousconcept.com/
