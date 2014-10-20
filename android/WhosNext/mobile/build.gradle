@@ -22,5 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     wearApp project(':wear')
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.1.+'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.1.+'
     compile 'com.google.android.gms:play-services:+'
 }

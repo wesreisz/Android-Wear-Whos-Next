@@ -1,20 +1,11 @@
 package com.wesleyreisz.whosnext;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.wesleyreisz.whosnext.fragment.WhatsNextFragment;
-
 
 public class WhatsNextActivity extends Activity {
 
@@ -28,7 +19,6 @@ public class WhatsNextActivity extends Activity {
                 .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,21 +40,5 @@ public class WhatsNextActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_whats_next, container, false);
-            return rootView;
-        }
     }
 }
