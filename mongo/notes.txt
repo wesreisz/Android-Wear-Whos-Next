@@ -42,4 +42,11 @@ db.collection('userlist').removeById
 
 //db.teamlist.drop()
 
+//installing on the server for gcloud required:
+sudo apt-get install gcc make build-essential
+
+//home directory for the grunt install was in 
+/opt
+
+
 
