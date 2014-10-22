@@ -1057,7 +1057,7 @@ aside.gdbar img {
 #li-image1{
 	position: absolute; 
 	top:370px; 
-	left:420px;  
+	left:440px;  
 	transform:rotate(220deg);
 	-ms-transform:rotate(220deg);
 	-webkit-transform:rotate(220deg);
@@ -1075,12 +1075,12 @@ aside.gdbar img {
 	transform:rotate(260deg);
 	-ms-transform:rotate(260deg);
 	-webkit-transform:rotate(260deg);
-	top:200px; 
+	top:250px; 
 	left:480px; 
 }
 #li-image4{
 	position: absolute; 
-	top:50px; 
+	top:200px; 
 	left:250px;  
 	transform:rotate(5deg);
 	-ms-transform:rotate(5deg);
@@ -1088,7 +1088,7 @@ aside.gdbar img {
 }
 #li-image5{
 	position: absolute; 
-	top:400px; 
+	top:430px; 
 	left:200px;  
 	transform:rotate(-15deg);
 	-ms-transform:rotate(-15deg);

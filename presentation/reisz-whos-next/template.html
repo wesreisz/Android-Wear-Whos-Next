@@ -111,14 +111,11 @@ URL: https://code.google.com/p/io-2012-slides
     <article class="smaller">
 	  <div class="halign">
 		<center>
-			<img src="/images/moto360.jpg" style=" padding: 10px;position:relative;top:-15px">
+			<img src="/images/moto_360.jpg" style=" padding: 10px;position:relative;top:-15px">
 		</center>
-		<p>
-			Information on the Moto360
-		</p>
 	  </div>
 	  <div style="clear:both;">
-      
+    
     </article>
   </slide>
 
@@ -127,14 +124,25 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Android Wear Info</h2>
     </hgroup>
 	    <article>
+			<p>
+			Android Wear is a version of Google's Android operating system designed for smartwatches and other wearables. By pairing with mobile phones running Android version 4.3+, Android Wear integrates Google Now functionality and mobile notifications into a smartwatch form factor. It also adds the ability to download apps from Google's Play Store.
+			</p>
+			<p>	
+			The platform was announced on March 18, 2014, along with the release of a developer preview. Companies such as Motorola, Samsung, LG, HTC and Asus have been announced as partners. On June 25, 2014, at Google I/O, the Samsung Gear Live and LG G Watch were launched, along with further details about Android Wear. Motorola's Moto 360 was released on September 5, 2014.
+			</p>
+			<p>
+			Announced Android Wear–based watches include both round and square- or rectangular-shaped watch faces.
+			</p>
 	    </article>	
     </article>
   </slide>
 
-<slide class="segue quote nobackground">
+
+  <slide class="segue quote nobackground">
     <article class="flexbox vleft auto-fadein" style="text-align: right;">
 
   		<q class="black">How can I customize the watchface?</q>
+       <img src="images/simple_face.png" />
 
     </article>
   </slide>
@@ -143,6 +151,26 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
     </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Simple Watchface</h2>
+    </hgroup>
+	    <article>
+			<ol>
+				<li>1.) Create a project in Android Studio (include both a wear and mobile project)</li>
+				<li>2.) Add our resources</li>
+				<li>3.) Update Layout and override AnalogClock (or DigitalClock)</li>
+				<li>4.) Update Android Manifest so the devices know's it supposed to be a watchface. (google_play_services_version, allowEmedded, and configure the intent filter)</li>
+				<li>5.) Deploy to emulator (or real device)</li>
+				<li>6.) Package and deploy</li>
+			</ol>
+			<center>
+				<img src="images/simple_face.png" />
+			</center>
+	    </article>	
+    </article>
   </slide>
 
  <slide>
@@ -157,33 +185,95 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide class="segue quote nobackground">
     <article class="flexbox vleft auto-fadein" style="text-align: right;">
-
   		<q class="black">Let's do something a bit more substantial'</q>
-
     </article>
   </slide>
 
-
-  <slide>
-	<hgroup>
-      <h2>Solution</h2>
+ <slide>
+    <hgroup>
+      <h2>Who's Next</h2>
     </hgroup>
-    <article>
+	    <article>
+			<p>Let's develop a wear application that communicate with your Android phone. To make it more interest, let's
+				call a ReST service on Compute Engine</p>
+			
      	<span class="build">
 	     	<img id="li-image5" src="/images/wear.png">
 	        <img id="li-image1" src="/images/bolt.png">
 	 		<img id="li-image2" src="/images/nexus.png">
 	 		<img id="li-image4" src="/images/compute.png">
-			
 			<img id="li-image3" src="/images/bolt.png">
 	    </span>
     </article>
   </slide>
 
+  <slide>
+    <hgroup>
+      <h2>Stack</h2>
+    </hgroup>
+	    <article>
+			<strong>Wear</strong>
+			<ul>
+				<li>Moto360</li>
+				<li>Android Wear: 4.4W (API 20)</li>
+				<li>Jackson: 2.1</li>
+			</ul>	
+			<strong>Android (Phone)</strong>
+			<ul>
+				<li>Nexus 5</li>
+				<li>Android Wear 4.4W: (API 20)</li>
+				<li>Play Services Wearable</li>	
+				<li>Jackson: 2.1</li>
+			</ul>
+			<strong>Compute (GCloud)</strong>
+			<ul>
+				<li>Node.js/Express</li>
+				<li>MongoDB</li>	
+				<li>Jackson: 2.1</li>
+			</ul>
+	    </article>	
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
-      <h2>Show Code</h2>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="images/whos_next_wear.png" /></td>
+					<td><img src="images/whos_next.png" /></td>
+					<td><img src="images/json.png" /></td>
+				</tr>	
+			</table>	
+	    </article>	
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Show Code (Android)</h2>
+    </hgroup>
+	    <article>
+	    </article>	
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Show Code (Android Wear)</h2>
+    </hgroup>
+	    <article>
+	    </article>	
+    </article>
+  </slide>
+
+  
+  <slide>
+    <hgroup>
+      <h2>Show Code (Compute)</h2>
     </hgroup>
 	    <article>
 	    </article>	
@@ -191,15 +281,6 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
-    <hgroup>
-      <h2>Show Code</h2>
-    </hgroup>
-	    <article>
-	    </article>	
-    </article>
-  </slide>
-
-<slide>
     <hgroup>
       <h2>Show Screenshots</h2>
     </hgroup>
@@ -209,7 +290,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
- <slide>
+  <slide>
     <hgroup>
       <h2>Summary</h2>
     </hgroup>
