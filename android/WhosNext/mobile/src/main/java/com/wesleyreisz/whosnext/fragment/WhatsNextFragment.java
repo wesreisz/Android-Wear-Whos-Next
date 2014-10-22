@@ -42,7 +42,8 @@ import java.util.List;
  * Created by wesleyreisz on 10/19/14.
  */
 public class WhatsNextFragment extends Fragment
-        implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+        implements GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener{
     private static final String TAG = "WhosNext";
 
     private List<Team> teams;
@@ -96,7 +97,6 @@ public class WhatsNextFragment extends Fragment
         if (null != googleClient && googleClient.isConnected()) {
             googleClient.disconnect();
         }
-
         super.onStop();
     }
 
@@ -231,15 +231,12 @@ public class WhatsNextFragment extends Fragment
     }
 
     private class SendToDataLayerThread extends Thread {
-        String path;
-        String message;
-
+        String path,message;
         // Constructor to send a message to the data layer
         SendToDataLayerThread(String p, String msg) {
             path = p;
             message = msg;
         }
-
         public void run() {
             NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(googleClient).await();
             for (Node node : nodes.getNodes()) {

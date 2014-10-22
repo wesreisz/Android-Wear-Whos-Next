@@ -12,7 +12,6 @@ public class ListenerService extends WearableListenerService {
 
     public ListenerService() {
     }
-
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         if (messageEvent.getPath().equals("/message_path")) {
