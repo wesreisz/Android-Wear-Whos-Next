@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Android Wear',
+    title: 'Android Wear: Who\'s Next',
     subtitle: 'My first few weeks with the Moto360 <br />http://reisz-whos-next.appspot.com',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
@@ -23,7 +23,7 @@ var SLIDE_CONFIG = {
     github: 'https://github.com/wesreisz/Android-Wear-Whos-Next',
     twitter: '@wesreisz',
     email: 'wes@wesleyreisz.com',
-    slideUrl: "http://reisz-whos-next.appspot.com/",
+    slideUrl: "http://android-wear-whos-next.appspot.com",
     www: 'http://www.wesleyreisz.com'
   }/*, {
     name: 'Second Name',

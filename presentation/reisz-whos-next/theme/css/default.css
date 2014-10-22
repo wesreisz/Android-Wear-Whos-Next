@@ -265,7 +265,7 @@ slides>slide.far-next { display: none }
 slides>slide.dark { background: #515151 !important }
 slides>slide:not(.nobackground):before {
     font-size: 12pt;
-    content: "#cpl13 #ltpom @wesreisz";
+    content: "@wesreisz";
     position: absolute;
     bottom: 20px;
     left: 60px;
@@ -703,6 +703,8 @@ article.smaller q:after { font-size: 60px }
     box-shadow: 0 0 10px #797979;
     width: 60%;
     padding: 2em;
+	position: relative;
+	top:-180px;
 }
 .with-notes.popup slides.layout-widescreen slide.next,
 .with-notes.popup slides.layout-faux-widescreen slide.next {
@@ -797,7 +799,7 @@ article.smaller q:after { font-size: 60px }
     padding: 1em;
 }
 .with-notes .note {
-    opacity: 1;
+	opacity: 1;
     -webkit-transform: translateY();
     -moz-transform: translateY();
     -ms-transform: translateY();
@@ -1046,89 +1048,51 @@ aside.gdbar img {
 .overview .slide-area { display: none }
 
 /*wtr*/
+.gitfork{
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
 #li-image1{
 	position: absolute; 
-	top:50px; 
-	left:400px;  
-	transform:rotate(35deg);
-	-ms-transform:rotate(35deg);
-	-webkit-transform:rotate(35deg);
+	top:370px; 
+	left:420px;  
+	transform:rotate(220deg);
+	-ms-transform:rotate(220deg);
+	-webkit-transform:rotate(220deg);
 }
 #li-image2{
 	position: absolute; 
-	top:90px; 
-	left:00px;  
+	top:300px; 
+	left:700px;  
 	transform:rotate(-5deg);
 	-ms-transform:rotate(-5deg);
 	-webkit-transform:rotate(-5deg);
 }
 #li-image3{
 	position: absolute; 
-	top:290px; 
-	left:200px; 
+	transform:rotate(260deg);
+	-ms-transform:rotate(260deg);
+	-webkit-transform:rotate(260deg);
+	top:200px; 
+	left:480px; 
 }
 #li-image4{
 	position: absolute; 
 	top:50px; 
-	left:650px;  
+	left:250px;  
 	transform:rotate(5deg);
 	-ms-transform:rotate(5deg);
 	-webkit-transform:rotate(5deg)
 }
 #li-image5{
 	position: absolute; 
-	top:60px; 
+	top:400px; 
 	left:200px;  
-	transform:rotate(15deg);
-	-ms-transform:rotate(15deg);
-	-webkit-transform:rotate(15deg)
-}
-#li-image6{
-	position: absolute; 
-	top:270px; 
-	left:550px;  
-	transform:rotate(-23deg);
-	-ms-transform:rotate(-23deg);
-	-webkit-transform:rotate(-23deg)
-}
-#arrow{
-	position: absolute; 
-	top:200px; 
-	left:250px;
-	transform:rotate(8deg);
-	-ms-transform:rotate(8deg);
-	-webkit-transform:rotate(8deg)
-}
-#vs{
-	position: absolute; 
-	top:160px; 
-	right:50px;
-}
-#hadoopDef{
-	position: absolute; 
-	top:60%; 
-	right:30px;
-	font-style:italic;
-	text-align:right;
-	width: 60%;
-}
-#bigDataDef{
-	position: absolute; 
-	bottom: -40px;
-	text-align: right;
-}
-#pigSml{
-	position: absolute; 
-	bottom: 0px;
-	left: -30px;
-	transform:rotate(-30deg);
-	-ms-transform:rotate(-30deg);
-	-webkit-transform:rotate(-30deg)
-}
-.gitfork{
-	position: absolute;
-	top:0px;
-	right:0px;
+	transform:rotate(-15deg);
+	-ms-transform:rotate(-15deg);
+	-webkit-transform:rotate(-15deg)
 }
 
 @media print { 
