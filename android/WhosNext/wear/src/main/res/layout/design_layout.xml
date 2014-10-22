@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/louisville_black"
+        android:id="@+id/watch_background"
+        />
+    <AnalogClock
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:dial="@drawable/one_pixel"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="20dp"
+        android:id="@+id/location"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#L1C4"
+        android:textColor="@color/white"
+        android:layout_above="@id/location"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/message"
+        />
+
+</RelativeLayout>

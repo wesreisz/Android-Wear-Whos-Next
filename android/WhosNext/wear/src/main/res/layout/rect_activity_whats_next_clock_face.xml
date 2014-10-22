@@ -7,9 +7,10 @@
     tools:context=".WhatsNextClockFaceActivity"
     tools:deviceIds="wear_square">
 
-    <TextView
-        android:id="@+id/text"
+
+    <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_square" />
+        layout="@layout/design_layout"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
