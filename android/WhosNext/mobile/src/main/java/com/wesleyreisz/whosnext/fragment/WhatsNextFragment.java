@@ -23,7 +23,10 @@ import com.wesleyreisz.whosnext.util.HttpUtil;
 import com.wesleyreisz.whosnext.util.WhosNextConstants;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -80,7 +83,7 @@ public class WhatsNextFragment extends Fragment {
         }
     }
 
-    private void buildNextOpponent(Team team) {
+    private void buildNextOpponent(Team team)  {
         if(team!=null && team.getSchedule()!=null){
             TextView textViewOpponentMessage = (TextView)getActivity().findViewById(R.id.txtNextOpponentMessage);
             textViewOpponentMessage.setText("Next Opponent:");
@@ -92,11 +95,18 @@ public class WhatsNextFragment extends Fragment {
             textViewLocation.setText(team.getSchedule().get(0).getLocation());
 
             TextView textViewTime = (TextView)getActivity().findViewById(R.id.txtDateTime);
-            textViewTime.setText(
-                team.getSchedule().get(0).getDate() + " (" +
-                team.getSchedule().get(0).getTime() + ")"
-            );
+            Date date = null;
+            try {
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(team.getSchedule().get(0).getDate());
+                String formatted = new SimpleDateFormat("MMM dd, yyyy").format(date);
 
+                textViewTime.setText(
+                        formatted + " (" +
+                                team.getSchedule().get(0).getTime() + ")"
+                );
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }else{
             txtMessage.setText("Unable to determine next opponent");
         }
