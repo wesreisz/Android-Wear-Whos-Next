@@ -6,3 +6,6 @@ data from a Google Compute Engine hosted Node.js server. The Mobile application
 opens a data pipeline (using Android Wear) to push updates over Bluetooth to 
 the watch. An HTML5 application is used to present the information and 
 demonstrate the examples.
+
+Presentation: http://android-wear-whos-next.appspot.com
+Server: http://gcloud.wesleyreisz.com:3000
