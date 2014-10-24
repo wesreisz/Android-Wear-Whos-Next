@@ -9,3 +9,7 @@ demonstrate the examples.
 
 Presentation: http://android-wear-whos-next.appspot.com
 Server: http://gcloud.wesleyreisz.com:3000
+
+forward to actual device for 
+adb forward tcp:4444 localabstract:/adb-hub; adb connect localhost:4444
+adb -d forward tcp:5601 tcp:5601
