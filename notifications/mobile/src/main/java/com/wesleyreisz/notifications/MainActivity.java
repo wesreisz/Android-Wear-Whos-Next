@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends Activity {
     private static final String CONF_LOCATION = "1405 St. Matthews Ave Winnipeg, MB R3G 0K5";
@@ -35,6 +38,7 @@ public class MainActivity extends Activity {
                 NotificationCompat.WearableExtender wearFeatures =
                      new NotificationCompat.WearableExtender();
                 wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
+                wearFeatures.addPages(addPages());
 
                 Notification notification =
                     new NotificationCompat.Builder(v.getContext())
@@ -54,7 +58,17 @@ public class MainActivity extends Activity {
 
     }
 
-
+    private List<Notification> addPages(){
+        List<Notification> pages = new ArrayList<Notification>();
+        for( int i = 1; i <= 3; i++ ){
+            Notification notification = new NotificationCompat.Builder(this)
+                    .setContentTitle("Page " + i)
+                    .setContentText("Text for page " + i)
+                    .build();
+            pages.add(notification);
+        }
+        return pages;
+    }
 
 
     private PendingIntent getPendingMapIntent(View v, String location){
