@@ -3,6 +3,7 @@ package com.wesleyreisz.notifications;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
@@ -21,11 +22,16 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                NotificationCompat.WearableExtender wearFeatures =
+                     new NotificationCompat.WearableExtender();
+                wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
+
                 Notification notification =
                     new NotificationCompat.Builder(v.getContext())
                         .setSmallIcon(android.R.drawable.btn_star)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!")
+                        .setContentTitle("Notification")
+                        .setContentText("Hello Prairie Dev Con, this is my Notification!")
+                        .extend(wearFeatures)
                         .build();
                 NotificationManager mNotifyMgr =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
