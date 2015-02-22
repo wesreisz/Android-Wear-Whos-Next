@@ -1,9 +1,14 @@
 package com.wesleyreisz.notifications;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +17,23 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button button = (Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Notification notification =
+                    new NotificationCompat.Builder(v.getContext())
+                        .setSmallIcon(android.R.drawable.btn_star)
+                        .setContentTitle("My notification")
+                        .setContentText("Hello World!")
+                        .build();
+                NotificationManager mNotifyMgr =
+                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                mNotifyMgr.notify(1, notification);
+            }
+        });
+
     }
 
 
