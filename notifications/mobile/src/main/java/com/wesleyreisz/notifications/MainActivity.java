@@ -31,10 +31,6 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                PendingIntent mapPendingConfIntent = getPendingMapIntent(v, CONF_LOCATION);
-                PendingIntent mapPendingYumIntent = getPendingMapIntent(v, YUM_LOCATION);
-
                 NotificationCompat.WearableExtender wearFeatures =
                      new NotificationCompat.WearableExtender();
                 wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
@@ -46,8 +42,9 @@ public class MainActivity extends Activity {
                         .setContentTitle("Notification")
                         .setContentText("Hello Prairie Dev Con, this is my Notification!")
                         .extend(wearFeatures)
-                        .addAction(android.R.drawable.ic_dialog_map, "Conf", mapPendingConfIntent)
-                        .addAction(android.R.drawable.ic_dialog_map, "Yum", mapPendingYumIntent)
+                        .addAction(android.R.drawable.ic_menu_set_as,"Open", getDetailIntent(v))
+                        .addAction(android.R.drawable.ic_dialog_map, "Conf", getPendingMapIntent(v, CONF_LOCATION))
+                        .addAction(android.R.drawable.ic_dialog_map, "Yum", getPendingMapIntent(v, YUM_LOCATION))
                         .build();
                 NotificationManager mNotifyMgr =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -60,7 +57,7 @@ public class MainActivity extends Activity {
 
     private List<Notification> addPages(){
         List<Notification> pages = new ArrayList<Notification>();
-        for( int i = 1; i <= 3; i++ ){
+        for( int i = 1; i <= 2; i++ ){
             Notification notification = new NotificationCompat.Builder(this)
                     .setContentTitle("Page " + i)
                     .setContentText("Text for page " + i)
@@ -70,6 +67,12 @@ public class MainActivity extends Activity {
         return pages;
     }
 
+    private PendingIntent getDetailIntent(View v){
+        Intent mapIntent = new Intent(v.getContext(),DetailActivity.class);
+        PendingIntent pendingIntent =
+                PendingIntent.getActivity(v.getContext(), 0, mapIntent, 0);
+        return pendingIntent;
+    }
 
     private PendingIntent getPendingMapIntent(View v, String location){
         Intent mapIntent = new Intent(Intent.ACTION_VIEW);
