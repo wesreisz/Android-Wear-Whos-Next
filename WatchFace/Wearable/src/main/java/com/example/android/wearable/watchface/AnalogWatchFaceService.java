@@ -252,8 +252,8 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService  {
             String currentDateString = DateFormat.getDateInstance(DateFormat.MEDIUM).format(new Date());
             String currentTimeString = DateFormat.getTimeInstance(DateFormat.SHORT).format(new Date());
 
-            canvas.drawText(currentDateString, centerX, centerY+115, paint);
-            canvas.drawText(currentTimeString, centerX, centerY+115+25, paint);
+            canvas.drawText(currentDateString, centerX, centerY+100, paint);
+            canvas.drawText(currentTimeString, centerX, centerY+100+25, paint);
 
 
             // Draw the ticks.
