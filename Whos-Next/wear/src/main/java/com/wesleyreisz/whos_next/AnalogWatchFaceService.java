@@ -30,6 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.wearable.watchface.CanvasWatchFaceService;
 import android.support.wearable.watchface.WatchFaceService;
 import android.support.wearable.watchface.WatchFaceStyle;
@@ -97,6 +98,16 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             }
         };
         boolean mRegisteredTimeZoneReceiver = false;
+
+        final BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String message = intent.getStringExtra("message");
+                Log.d(TAG, "Message received from phone: " + message);
+
+                updateWatchFace(message);
+            }
+        };
 
         /**
          * Whether the display supports fewer bits for each color in ambient mode. When true, we
@@ -313,6 +324,10 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             mRegisteredTimeZoneReceiver = true;
             IntentFilter filter = new IntentFilter(Intent.ACTION_TIMEZONE_CHANGED);
             AnalogWatchFaceService.this.registerReceiver(mTimeZoneReceiver, filter);
+
+            IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
+            AnalogWatchFaceService.this.registerReceiver(messageReceiver, messageFilter);
+
         }
 
         private void unregisterReceiver() {
@@ -321,6 +336,11 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             }
             mRegisteredTimeZoneReceiver = false;
             AnalogWatchFaceService.this.unregisterReceiver(mTimeZoneReceiver);
+            AnalogWatchFaceService.this.unregisterReceiver(messageReceiver);
+        }
+
+        private void updateWatchFace(String message){
+            //update the watchface here
         }
 
         /**
