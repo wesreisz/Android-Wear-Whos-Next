@@ -42,13 +42,6 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Sample analog watch face with a ticking second hand. In ambient mode, the second hand isn't
- * shown. On devices with low-bit ambient mode, the hands are drawn without anti-aliasing in ambient
- * mode. The watch face is drawn with less contrast in mute mode.
- *
- * {@link SweepWatchFaceService} is similar but has a sweep second hand.
- */
 public class AnalogWatchFaceService extends CanvasWatchFaceService {
     private static final String TAG = "AnalogWatchFaceService";
 

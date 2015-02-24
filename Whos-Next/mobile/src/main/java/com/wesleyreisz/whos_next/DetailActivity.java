@@ -1,18 +1,17 @@
 package com.wesleyreisz.whos_next;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends Activity {
+public class DetailActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_detail);
     }
 
 
@@ -33,9 +32,6 @@ public class MainActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }else if(id == R.id.notifications){
-            Intent notificationIntent = new Intent(this, NotificationActivity.class);
-            startActivity(notificationIntent);
         }
 
         return super.onOptionsItemSelected(item);
