@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
+import com.wesleyreisz.whos_next.model.Team;
+
+import java.io.IOException;
 
 public class ListenerService extends WearableListenerService {
     private static final String TAG = "whos_next";
@@ -18,11 +22,18 @@ public class ListenerService extends WearableListenerService {
             final String message = new String(messageEvent.getData());
             Log.d(TAG, "Message received: " + message);
 
-            // Broadcast message to wearable activity for display
-            Intent messageIntent = new Intent();
-            messageIntent.setAction(Intent.ACTION_SEND);
-            messageIntent.putExtra("message", message);
-            LocalBroadcastManager.getInstance(this).sendBroadcast(messageIntent);
+
+            ObjectMapper mapper = new ObjectMapper();
+            Team team = new Team();
+            try {
+                team = mapper.readValue(message, Team.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //set into global state
+            WhosNextApplication app = ((WhosNextApplication) getApplicationContext());
+            app.setTeam(team);
         }
         else {
             super.onMessageReceived(messageEvent);

@@ -1,12 +1,16 @@
 package com.wesleyreisz.whos_next;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,16 +71,7 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(),"Push to Wear", Toast.LENGTH_SHORT);
-                toast.show();
-
-                googleClient = new GoogleApiClient.Builder(v.getContext())
-                        .addApi(Wearable.API)
-                        .addConnectionCallbacks(MainActivity.this)
-                        .addOnConnectionFailedListener(MainActivity.this)
-                        .build();
-
-                googleClient.connect();
+                updateWearable(v.getContext());
             }
         });
     }
@@ -214,6 +209,16 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         }
     }
 
+    private void updateWearable(Context context){
+        googleClient = new GoogleApiClient.Builder(context)
+                .addApi(Wearable.API)
+                .addConnectionCallbacks(MainActivity.this)
+                .addOnConnectionFailedListener(MainActivity.this)
+                .build();
+
+        googleClient.connect();
+    }
+
     private class ListTeamsHttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -263,6 +268,7 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             try {
                 team = mapper.readValue(results, Team.class);
                 buildNextOpponent(team);
+                updateWearable(MainActivity.this);
             } catch (IOException e) {
                 e.printStackTrace();
             }

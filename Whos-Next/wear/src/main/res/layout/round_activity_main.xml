@@ -4,10 +4,33 @@
     android:layout_height="match_parent" tools:context="com.wesleyreisz.whos_next.MainActivity"
     tools:deviceIds="wear_round">
 
-    <TextView android:id="@+id/text" android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textWhosNextInfo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_round"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textWhosNextInfo"
+        android:layout_centerHorizontal="true"
+        android:text="Next Opponent:"
+        />
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textWhosNextInfo"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/textLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTime"
+        android:layout_centerHorizontal="true"
         />
 </RelativeLayout>

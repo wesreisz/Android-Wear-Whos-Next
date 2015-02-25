@@ -38,6 +38,9 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+import com.wesleyreisz.whos_next.model.Schedule;
+import com.wesleyreisz.whos_next.model.Team;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -99,16 +102,6 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
         };
         boolean mRegisteredTimeZoneReceiver = false;
 
-        final BroadcastReceiver messageReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String message = intent.getStringExtra("message");
-                Log.d(TAG, "Message received from phone: " + message);
-
-                updateWatchFace(message);
-            }
-        };
-
         /**
          * Whether the display supports fewer bits for each color in ambient mode. When true, we
          * disable anti-aliasing in ambient mode.
@@ -135,7 +128,24 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             //Drawable backgroundDrawable = resources.getDrawable(R.drawable.bg);
             Drawable backgroundDrawable = resources.getDrawable(R.drawable.cards_black);
 
+            /*
+            //this might change the background to match the team you selected.
+
+            WhosNextApplication app = ((WhosNextApplication) getApplicationContext());
+            Team team = app.getTeam();
+            if (team!=null && team.getSchedule()!=null && team.getSchedule().get(0)!=null) {
+                Schedule schedule = team.getSchedule().get(0);
+                if(schedule.getTeam().toLowerCase().contains("noles")) {
+                    backgroundDrawable = resources.getDrawable(R.drawable.noles_black);
+                }
+            }else{
+                backgroundDrawable = resources.getDrawable(R.drawable.cards_black);
+            }*/
+
+            backgroundDrawable = resources.getDrawable(R.drawable.cards_black);
             mBackgroundBitmap = ((BitmapDrawable) backgroundDrawable).getBitmap();
+
+
 
             mHourPaint = new Paint();
             mHourPaint.setARGB(255, 200, 200, 200);
@@ -325,9 +335,6 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             IntentFilter filter = new IntentFilter(Intent.ACTION_TIMEZONE_CHANGED);
             AnalogWatchFaceService.this.registerReceiver(mTimeZoneReceiver, filter);
 
-            IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
-            AnalogWatchFaceService.this.registerReceiver(messageReceiver, messageFilter);
-
         }
 
         private void unregisterReceiver() {
@@ -336,11 +343,6 @@ public class AnalogWatchFaceService extends CanvasWatchFaceService {
             }
             mRegisteredTimeZoneReceiver = false;
             AnalogWatchFaceService.this.unregisterReceiver(mTimeZoneReceiver);
-            AnalogWatchFaceService.this.unregisterReceiver(messageReceiver);
-        }
-
-        private void updateWatchFace(String message){
-            //update the watchface here
         }
 
         /**

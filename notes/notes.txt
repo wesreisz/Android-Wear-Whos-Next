@@ -1,0 +1,2 @@
+adb -e logcat -s "whos_next"
+adb -d logcat -s "whos_next"
