@@ -1,37 +1,37 @@
 db.teamlist.insert({
-   "team":"Louisville Cardinals",
-   "nickname":"Cards",
-   "warcry":"Go Cards!!!",
-   "hometown":"Louisville, Kentucky",
-   "logo":"louisville.png",
-   "helmet":"louisville_helmet.png",
-   "schedule":[
-      {
-         "team":"Florida State",
-         "nickname":"Seminoles",
-         "logo":"http://image.cdnllnwnl.xosnetwork.com/fls/32900/site_graphics/footerlogo.png",
-         "helmet":"",
-         "date":"2015-02-28",
-         "time":"12:00PM",
-         "location":"@Florida State"
-      },
-      {  
-         "team":"Notre Dame",
-         "nickname":"Fighting Irish",
-         "logo":"http://media.irishcentral.com/images/notre_dame_man.jpg",
-         "helmet":"",
-         "date":"2015-03-04",
-         "time":"7:00PM",
-         "location":"@Louisville"
-      },
-      {  
-         "team":"Virginia",
-         "nickname":"Virginia Cavaliers",
-         "logo":"http://upload.wikimedia.org/wikipedia/en/d/d1/Virginia_Cavaliers_sabre.svg",
-         "helmet":"",
-         "date": "2015-04-07",
-         "time":"6:30PM",
-         "location":"@Louisville"
-      }
-   ]
+	"team" : "Louisville Cardinals",
+	"nickname" : "Cards",
+	"warcry" : "Go Cards!!!",
+	"hometown" : "Louisville, Kentucky",
+	"logo" : "louisville.png",
+	"helmet" : "louisville_helmet.png",
+	"schedule" :[
+	      {
+	         "team":"Florida State",
+	         "nickname":"Seminoles",
+	         "logo":"http://image.cdnllnwnl.xosnetwork.com/fls/32900/site_graphics/footerlogo.png",
+	         "helmet":"",
+	         "date":new Date("2015-02-28"),
+	         "time":"12:00PM",
+	         "location":"@Florida State"
+	      },
+	      {
+	         "team":"Notre Dame",
+	         "nickname":"Fighting Irish",
+	         "logo":"http://media.irishcentral.com/images/notre_dame_man.jpg",
+	         "helmet":"",
+	         "date":new Date("2015-03-04"),
+	         "time":"7:00PM",
+	         "location":"@Louisville"
+	      },
+	      {
+	         "team":"Virginia",
+	         "nickname":"Virginia Cavaliers",
+	         "logo":"http://upload.wikimedia.org/wikipedia/en/d/d1/Virginia_Cavaliers_sabre.svg",
+	         "helmet":"",
+	         "date": new Date("2015-04-07"),
+	         "time":"6:30PM",
+	         "location":"@Louisville"
+	      }
+	   ]
 })

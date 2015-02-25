@@ -8,7 +8,7 @@ import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
 public class ListenerService extends WearableListenerService {
-    private static final String TAG = "WhosNext";
+    private static final String TAG = "whos_next";
 
     public ListenerService() {
     }

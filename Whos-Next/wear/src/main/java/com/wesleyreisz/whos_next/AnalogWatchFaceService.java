@@ -44,7 +44,7 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 public class AnalogWatchFaceService extends CanvasWatchFaceService {
-    private static final String TAG = "AnalogWatchFaceService";
+    private static final String TAG = "whos_next";
 
     /**
      * Update rate in milliseconds for interactive mode. We update once a second to advance the
