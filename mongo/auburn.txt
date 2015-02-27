@@ -1,0 +1,37 @@
+db.teamlist.insert({
+        "team" : "Auburn Tigers",
+        "nickname" : "Tigers",
+        "warcry" : "Go Tigers!!!",
+        "hometown" : "Auburn, Alabama",
+        "logo" : "http://www.warblogle.com/wp-content/uploads/2012/02/Auburn_Tiger_head_UA004.jpg",
+        "helmet" : "",
+        "schedule" :[
+                {
+                    "team" : "Texas A&M",
+                    "nickname" : "Aggies",
+                    "logo" : "https://www.gstatic.com/onebox/sports/logos/-m-028552x__56x42.png",
+                        "helmet" : "",
+                        "date" : new Date("2015-02-28"),
+                        "time" : "8:30PM",
+                        "location" : "@Texas A&M"
+            },
+                {
+                    "team" : "Missouri",
+                    "nickname" : "Missouri",
+                    "logo" : "https://www.gstatic.com/onebox/sports/logos/-m-03wctwm__56x42.png",
+                        "helmet" : "",
+                        "date" : new Date("2015-03-03"),
+                        "time" : "9:00PM",
+                        "location" : "@Missouri"
+            },
+                {
+                    "team" : "Georgia",
+                    "nickname" : "Dawgs",
+                    "logo" : "https://www.gstatic.com/onebox/sports/logos/-m-03x_lh9__56x42.png",
+                        "helmet" : "",
+                        "date" : new Date("2015-03-07"),
+                        "time" : "4:00PM",
+                        "location" : "@Auburn"
+            }
+        ]
+})
