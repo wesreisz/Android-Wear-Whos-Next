@@ -984,10 +984,9 @@ aside.gdbar.bottom {
     bottom: 60px;
 }
 aside.gdbar img {
-    width: 90px;
     position: absolute;
     right: 0;
-    margin: 8px 15px;
+    margin: 10px 30px 10px 10px;
 }
 .title-slide hgroup { bottom: 100px }
 .title-slide hgroup h1 {
@@ -1053,7 +1052,66 @@ aside.gdbar img {
 	top:0px;
 	right:0px;
 }
+/*load order for IoT*/
+#li-image10{
+	position: absolute; 
+	top:300px; 
+	left:400px;  
+}
+#li-image11{
+	position: absolute; 
+	top:30px; 
+	right:50px;  
+	transform:rotate(10deg);
+	-ms-transform:rotate(10deg);
+	-webkit-transform:rotate(10deg);
+}
+#li-image12{
+	position: absolute; 
+	top:200px; 
+	left:400px; 
+	transform:rotate(15deg);
+	-ms-transform:rotate(15deg);
+	-webkit-transform:rotate(15deg);
+}
+#li-image13{
+	position: absolute; 
+	top:250px; 
+	right:30px; 
+}
+#li-image14{
+	position: absolute; 
+	bottom:50px; 
+	left:50px; 
+	transform:rotate(15deg);
+	-ms-transform:rotate(15deg);
+	-webkit-transform:rotate(15deg); 
+}
+#li-image2{
+	position: absolute; 
+	top:200px; 
+	left:300px;  
+}
+#li-image16{
+	position: absolute; 
+	top:100; 
+	left:150px;
+	width:800px;
+}
+#li-image15{
+	transform:rotate(-15deg);
+	-ms-transform:rotate(-15deg);
+	-webkit-transform:rotate(-15deg);
+}
+#li-image17{
+	position: absolute; 
+	top:100; 
+	left:450px;
+}
 
+
+
+/* load order for wear stack*/
 #li-image1{
 	position: absolute; 
 	top:370px; 
