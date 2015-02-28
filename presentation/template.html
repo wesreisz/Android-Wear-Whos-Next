@@ -76,11 +76,22 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide class="segue quote nobackground">
+<slide>
+	<hgroup>
+      <h2>Big Data</h2>
+    </hgroup>
     <article>
-	
-        <span class="black" style="position:relative; left:-50px;"><br /><br />Big Data<br />
+      <div style="position: absolute; top: 20px; right:60px;text-align:right;width:60%">
+		<span class="italics">Big data is the term for a collection of data sets so large and complex that it becomes difficult to process using on-hand database management tools or traditional data processing applications... The trend to larger data sets is due to the additional information derivable from analysis of a single large set of related data, as compared to separate smaller sets with the same total amount of data, allowing correlations to be found to "spot business trends, determine quality of research, prevent diseases, link legal citations, combat crime, and determine real-time roadway traffic conditions.</span>
+	  </div>
 
+	  <ul class="build" style="padding-top:100px">
+		<li>Volume</li>
+		<li>Velocity</li>
+		<li>Variety</li>
+		<img id="arrow" src="images/arrow-vector-sml.png">
+		<img id="vs" src="images/BigData-4Vs.png">
+	  </ul>	
     </article>
   </slide>
 
@@ -91,7 +102,7 @@ URL: https://code.google.com/p/io-2012-slides
   <slide class="segue quote nobackground">
     <article>
 	
-        <span class="black" style="position:relative; left:-50px;"><br /><br />IoT + Big Data == <br />
+        <div style="text-align:center; padding: 100px;"><img src="images/iot_bigdata.png"></div>
 
     </article>
   </slide>
@@ -140,7 +151,7 @@ URL: https://code.google.com/p/io-2012-slides
 			<li><b>Context Stream</b>: The contextual stream shows all of your informational cards like notifications from Google and third-party apps in a navigable stack.</li>
 			<li><b>Notifications</b>: Most Android notifications automatically port to your wear. However, you can extend notification and provide wear specific features.</li>
 			<li><b>Actions</b>: You can respond to notifications or engage with cards in the stream using actions. Actions get things done.</li>
-			<li><b>Search</b>: Just say "OK Google" from the watchface to perform all sorts of things using your voice. </li>
+			<li><b>Cue Card (Search)</b>: Just say "OK Google" from the watchface to perform all sorts of things using your voice. </li>
 			<li><b>Fitness</b>: Depending on your watch and its hardware, Android Wear lets you track fitness data. You can see how many steps you take each day, set simple goals for steps, and check your heart rate. I</li>	
 			<li><b>Apps</b>: Write Android Apps!!!</li>
 	    </ul>
@@ -169,7 +180,15 @@ URL: https://code.google.com/p/io-2012-slides
 	  </article>
   </slide>
 
- <slide>
+  <slide class="segue nobackground">
+    <article class="flexbox vleft auto-fadein" style="text-align: right;">
+
+  		<q class="black">Basics of Android Wear and how it works</q><br />
+
+    </article>
+  </slide>
+
+  <slide>
 	<hgroup>
 	      <h2>Basics of Android Wear and how it works</h2>
 	 </hgroup>
@@ -186,7 +205,32 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+  <slide>
+	<hgroup>
+	      <h2>Basics of Android Wear and how it works</h2>
+	 </hgroup>
+    <article>
+		Navigating Android Wear:<br /><br />
+		<div style="text-align:center">
+			<img src="images/stream.gif" />
+		</div>	
+    </article>
+  </slide>
+
  <slide>
+	<hgroup>
+	      <h2>Basics of Android Wear and how it works</h2>
+	 </hgroup>
+    <article>
+		Navigating Cue Card (OK Google):<br /><br />
+		<div style="text-align:center">
+			<img src="images/cuecard.gif" />
+		</div>	
+    </article>
+  </slide>
+
+
+  <slide>
 	<hgroup>
 	      <h2>Basics of Android Wear and how it works</h2>
 	 </hgroup>
@@ -206,6 +250,36 @@ URL: https://code.google.com/p/io-2012-slides
 			
     </article>
   </slide>
+
+  <slide>
+	<hgroup>
+	      <h2>Basics of Android Wear and how it works</h2>
+	 </hgroup>
+    <article>
+	
+		<div>
+			<b>Exception is in development</b>: You deploy each app individually to the device. Additionally, it is typical for you to connect
+			to at least one live device and the other as an emulator. You can use both emulators; however, in most cases, you see people using a
+			live phone and an wear emulator.
+		</div>	
+		<br /><br />
+		
+			To connect you devices for development:
+		
+			<ul>
+				<li>Create Emulator & Start Wear Emulator <br />(emulator -avd Android_Wear_Round_API_21 -netspeed full -netdelay none)</li>
+				<li>Connect Phone via USB</li>
+				<li>Install Android Wear App from Android Market</li>
+				<li>Enable Development Mode and USB Debugging Both devices</li>
+				<li>Forward ports (adb -d forward tcp:5601 tcp:5601)</li>
+				<li>List devices (adb devices)</li>
+				<li>Deploy each app (android and wear)</li>
+			</ul>
+			<a href="http://android-wear-docs.readthedocs.org/en/latest/explore.html">http://android-wear-docs.readthedocs.org/en/latest/explore.html</a>
+			
+    </article>
+  </slide>
+
 
   <slide class="segue quote nobackground">
     <article class="flexbox vleft auto-fadein" style="text-align: right;">
@@ -248,10 +322,108 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+ <slide>
+    <hgroup>
+      <h2>Android Notifications</h2>
+    </hgroup>
+	    <article class="smaller">
+			<pre class="prettyprint swapCode" data-lang="Java (Android)">
+	Notification notification =
+	    new NotificationCompat.Builder(v.getContext())
+	        .setSmallIcon(android.R.drawable.btn_star)
+	        .setContentTitle("Hey! Over here...")
+	        .setContentText("Hello Prairie Dev Con, this is my Notification!")
+	        .build();
+	NotificationManager mNotifyMgr =
+	        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+	mNotifyMgr.notify(1, notification);
+			</pre>
+	    </article>
+  </slide>
+
+ <slide>
+	<hgroup>
+	      <h2>Android Notifications</h2>
+	 </hgroup>
+    <article>
+		Navigating Cue Card (OK Google):<br /><br />
+		<div style="text-align:center">
+			<img src="images/notification.png" />
+		</div>	
+    </article>
+  </slide>
+
+ <slide>
+    <hgroup>
+      <h2>Android Notifications</h2>
+    </hgroup>
+	    <article class="smaller">
+			<pre class="prettyprint swapCode" data-lang="Java (Android)">
+	NotificationCompat.WearableExtender wearFeatures =
+	     new NotificationCompat.WearableExtender();
+	wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
+	wearFeatures.addPages(addPages());
+
+	Notification notification =
+	    new NotificationCompat.Builder(v.getContext())
+	        .setSmallIcon(android.R.drawable.btn_star)
+	        .setContentTitle("Hey! Over here...")
+	        .setContentText("Hello Prairie Dev Con, this is my Notification!")
+	        .extend(wearFeatures)
+	        .addAction(android.R.drawable.ic_menu_set_as,"Open", getDetailIntent(v))
+	        .addAction(android.R.drawable.ic_dialog_map, "Conf", getPendingMapIntent(v, CONF_LOCATION))
+	        .addAction(android.R.drawable.ic_dialog_map, "Yum", getPendingMapIntent(v, YUM_LOCATION))
+	        .setPriority(NotificationCompat.PRIORITY_HIGH)
+	        .build();
+	NotificationManager mNotifyMgr =
+	        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+	mNotifyMgr.notify(1, notification);
+			</pre>
+	    </article>
+  </slide>
+
+ <slide>
+    <hgroup>
+      <h2>Android Notifications</h2>
+    </hgroup>
+	    <article class="smaller">
+			<pre class="prettyprint swapCode" data-lang="Java (Android)">
+private List<Notification> addPages(){
+		List<Notification> pages = new ArrayList<Notification>();
+		for( int i = 1; i <= 2; i++ ){
+		    Notification notification = new NotificationCompat.Builder(this)
+		            .setContentTitle("Page " + i)
+		            .setContentText("Text for page " + i)
+		            .build();
+		    pages.add(notification);
+		}
+        return pages;
+}
+	
+private PendingIntent getPendingMapIntent(View v, String location){
+         Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+         Uri geoUri = Uri.parse("geo:0,0?q=" + Uri.encode(location));
+         mapIntent.setData(geoUri);
+         PendingIntent mapPendingIntent =
+                PendingIntent.getActivity(v.getContext(), 0, mapIntent, 0);
+         return mapPendingIntent;
+}
+			</pre>
+	    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
+    <hgroup>
+      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
+    </hgroup>
+  </slide>
+
 
   <slide class="segue quote nobackground">
     <article class="flexbox vleft auto-fadein" style="text-align: right;">
-  		<q class="black">Let's do something a bit more substantial. How do you make your wear device communicate with another device'</q>
+  		<q class="black">Let's do something a bit more substantial. How do you make wear communicate with another device over bluetooth?'</q>
     </article>
   </slide>
 
@@ -260,9 +432,27 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Who's Next</h2>
     </hgroup>
 	    <article>
+			First, using the sample application for the Watch Face, we create a true custom watchface.
+			<div style="text-align:center">
+					<img src="images/watchface.png" />
+			</div>
+	    </article>	
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
+    <hgroup>
+      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
+    </hgroup>
+  </slide>
+
+ <slide>
+    <hgroup>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
 			<p>Let's develop a wear application that communicate with your Android phone. To make it more interesting, let's
-				call a ReST service on Compute Engine using the MEAN Stack template. That's right... GCLoud Supports MEAN 
-				(and more)!</p>
+				call a ReST service on Compute Engine using the MEAN Stack template.</p>
 			
      	<span class="build">
 	     	<img id="li-image5" src="/images/wear.png">
@@ -283,8 +473,8 @@ URL: https://code.google.com/p/io-2012-slides
 				<li>
 					<strong>Wear</strong>
 					<ul>
-						<li>Moto360</li>
-						<li>Android Wear: 4.4W (API 20)</li>
+						<li>Moto 360</li>
+						<li>Android Wear: 5.0.2 (API 21)</li>
 						<li>Jackson: 2.1</li>
 					</ul>
 				</li>
@@ -292,7 +482,7 @@ URL: https://code.google.com/p/io-2012-slides
 					<strong>Android (Phone)</strong>
 					<ul>
 						<li>Nexus 5</li>
-						<li>Android Wear 4.4.2: (API 19)</li>
+						<li>Android Wear 5.0.1: (API 21)</li>
 						<li>Play Services Wearable</li>	
 						<li>Jackson: 2.1</li>
 					</ul>
@@ -307,6 +497,22 @@ URL: https://code.google.com/p/io-2012-slides
 	    </article>
   </slide>
 
+  <slide>
+	<hgroup>
+	      <h2>Basics of Android Wear and how it works</h2>
+	 </hgroup>
+    <article>
+		<div style="text-align:center">
+			<img src="images/how.png" style="padding: 75px;"/>
+		</div>
+		Steps:
+		<ul>
+			<ol>1. Pair with device over bluetook</ol>
+			<ol>2. Wear access the Internet via paired device</ol>
+		</ul>	
+
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
@@ -315,12 +521,23 @@ URL: https://code.google.com/p/io-2012-slides
 	    <article>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td><img src="images/whos_next_wear.png" /></td>
+					<td><img src="images/watchface.png" /></td>
 					<td><img src="images/whos_next.png" /></td>
 					<td><img src="images/json.png" /></td>
 				</tr>	
 			</table>	
 	    </article>	
+  </slide>
+
+ <slide>
+	<hgroup>
+	      <h2>Who's Next</h2>
+	 </hgroup>
+    <article>
+		<div style="text-align:center">
+			<img src="images/whos_next.png" style="padding: 75px;"/>
+		</div>
+    </article>
   </slide>
 
   <slide>
@@ -329,22 +546,28 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
 	    <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
- @Override
- public void onActivityCreated(Bundle savedInstanceState) {
-     ...
-     Button sync = (Button) getActivity().findViewById(R.id.btnSync);
-     sync.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-             googleClient = new GoogleApiClient.Builder(getActivity())
-                 .addApi(Wearable.API)
-                 .addConnectionCallbacks(WhatsNextFragment.this)
-                 .addOnConnectionFailedListener(WhatsNextFragment.this)
-                 .build();
-             googleClient.connect();
-         }
-     });
- }
+@Override
+protected void onCreate(Bundle savedInstanceState) {	
+	...			
+	Button sync = (Button) findViewById(R.id.btnSync);
+		sync.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		        updateWearable(v.getContext());
+		    }
+	});
+	...
+}	
+
+private void updateWearable(Context context){
+    googleClient = new GoogleApiClient.Builder(context)
+            .addApi(Wearable.API)
+            .addConnectionCallbacks(MainActivity.this)
+            .addOnConnectionFailedListener(MainActivity.this)
+            .build();
+
+    googleClient.connect();
+}
 			</pre>
 	    </article>
   </slide>
@@ -356,27 +579,29 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
 	     <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
- public class WhatsNextFragment extends Fragment 
-    implements ConnectionCallbacks, OnConnectionFailedListener{ ...
-    @Override
-    public void onStop() {
-        if (null != googleClient && googleClient.isConnected()) {
-            googleClient.disconnect();
-        }
-        super.onStop();
-    }
-    @Override
-    public void onConnected(Bundle bundle) {
-        txtMessage.setText("Connected to device");
-        new SendToDataLayerThread("/message_path", messageForDevice).start();
-    }
-    @Override
-    public void onConnectionSuspended(int i) { }
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        txtMessage.setText("Unable to connect to device");
-    }
- }
+public class MainActivity extends Activity 
+	implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+	...					
+	@Override
+	public void onConnected(Bundle bundle) {
+	    Log.d(TAG, "Connected to wear");
+	    mTxtMessage.setText("Connected to wear");
+	    new SendToDataLayerThread("/whos_next_updates", mMessageForDevice).start();
+	}
+
+	@Override
+	public void onConnectionSuspended(int i) {
+	    Log.d(TAG, "Wear connection suspended");
+	    mTxtMessage.setText("Wear connection suspended");
+	}
+
+	@Override
+	public void onConnectionFailed(ConnectionResult connectionResult) {
+	    Log.d(TAG, "Unable to connect to device");
+	    mTxtMessage.setText("Unable to connect to device");
+	}
+	...
+}	
 			</pre>
 	    </article>
   </slide>
@@ -411,6 +636,17 @@ URL: https://code.google.com/p/io-2012-slides
 	    </article>	
   </slide>
 
+ <slide>
+	<hgroup>
+	      <h2>Who's Next</h2>
+	 </hgroup>
+    <article>
+		<div style="text-align:center">
+			<img src="images/watchface.png" style="padding: 75px;"/>
+		</div>
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>Show Code (Android Wear)</h2>
@@ -418,21 +654,27 @@ URL: https://code.google.com/p/io-2012-slides
 	    <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
 public class ListenerService extends WearableListenerService {
-    private static final String TAG = "WhosNext";
+    private static final String TAG = "whos_next";
 
     public ListenerService() {
     }
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-        if (messageEvent.getPath().equals("/message_path")) {
+        if (messageEvent.getPath().equals("/whos_next_updates")) {
             final String message = new String(messageEvent.getData());
-            Log.d(TAG,"Message received: " + message);
+            Log.d(TAG, "Message received: " + message);
 
-            // Broadcast message to wearable activity for display
-            Intent messageIntent = new Intent();
-            messageIntent.setAction(Intent.ACTION_SEND);
-            messageIntent.putExtra("message", message);
-            LocalBroadcastManager.getInstance(this).sendBroadcast(messageIntent);
+            ObjectMapper mapper = new ObjectMapper();
+            Team team = new Team();
+            try {
+                team = mapper.readValue(message, Team.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //set into global state
+            WhosNextApplication app = ((WhosNextApplication) getApplicationContext());
+            app.setTeam(team);
         }
         else {
             super.onMessageReceived(messageEvent);
@@ -471,6 +713,17 @@ public class ListenerService extends WearableListenerService {
 	    </article>
   </slide>
 
+ <slide>
+    <hgroup>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
+			<div style="text-align:center">
+					<img src="images/layout.png" />
+			</div>
+	    </article>	
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
@@ -478,21 +731,34 @@ public class ListenerService extends WearableListenerService {
     </hgroup>
 	    <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
-        BroadcastReceiver messageReceiver = new BroadcastReceiver() {
-            @Override
-                public void onReceive(Context context, Intent intent) {
-                String message = intent.getStringExtra("message");
-                Log.d(TAG, "Message received from phone: " + message);
-
-                updateWatchFace(message);
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+    stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
+        @Override
+        public void onLayoutInflated(WatchViewStub stub) {
+            WhosNextApplication app = ((WhosNextApplication) getApplicationContext());
+            Team team = app.getTeam();
+            if (team!=null && team.getSchedule()!=null) {
+                List<Schedule> schedules = team.getSchedule();
+                mTextViewOpponent = (TextView) stub.findViewById(R.id.textWhosNextInfo);
+                mTextViewDate = (TextView) stub.findViewById(R.id.textTime);
+                mTextViewLocation = (TextView) stub.findViewById(R.id.textLocation);
+                if (schedules.get(0) != null) {
+                    Schedule schedule = schedules.get(0);
+                    mTextViewOpponent.setText(schedule.getTeam());
+                    String display = DateUtil.formatDateForDisplay(schedule.getDate()) + " " + schedule.getTime();
+                    mTextViewDate.setText(display);
+                    mTextViewLocation.setText(schedule.getLocation());
+                }else{
+                    mTextViewOpponent.setText("No regular season game found next");
+                }
             }
-        };
-
-        LocalBroadcastManager.getInstance(WhatsNextClockFaceActivity.this).registerReceiver(messageReceiver, messageFilter);
-    }
+        }
+    });
+}
 			</pre>
 	    </article>
   </slide>
@@ -527,7 +793,7 @@ public class ListenerService extends WearableListenerService {
 			<center>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td style="vertical-align:top"><img src="images/whos_next_wear.png" /></td>
+						<td style="vertical-align:top"><img src="images/watchface.png" /></td>
 						<td style="vertical-align:top"><img src="images/whos_next.png" /></td>
 						<td style="vertical-align:top"><img src="images/json.png" /></td>
 					</tr>	
@@ -543,28 +809,21 @@ public class ListenerService extends WearableListenerService {
     </hgroup>
 	     <article>
 				<ul class="build">
-					<li>
-						<strong>No Aha!!</strong>
-						<ul>
-							<li>I personally have not discovered an aha!!! moment; however, I equally don't 
-								discount that I could.</li>
-						</ul>
-					</li>
 					<li>		
 						<strong>Battery</strong>
 						<ul>
-							<li>Lasts about 10-13 hours for me and my usage</li>
-							<li>Custom watch faces (particularly, those with second hands)</li>
+							<li>Lasts about ~24 hours for me and my usage (getting better!!!)</li>
 						</ul>
 					</li>
 					<li>		
 						<strong>API's are easy to use</strong>
 						<ul>
 							<li>Did not get into alot of the API's, but the ones I did was solid and easy to use and are pretty well documents</li>
+							<li>Notifications are simple and easy to extend an existing app to wear/li>
 						</ul>
 					</li>
 					<li>		
-						<strong>Tied to Android</strong>
+						<strong>It's just Android</strong>
 						<ul>
 							<li>Did not know you had to use wear devices through your phone. It currently required it.</li>
 						</ul>
@@ -572,7 +831,14 @@ public class ListenerService extends WearableListenerService {
 					<li>		
 						<strong>It's just Android</strong>
 						<ul>
-							<li>Boil it down... it's just Android'</li>
+							<li>Boil it down... it's just Android</li>
+						</ul>
+					</li>
+					<li>		
+						<strong>Think about how you design for wear</strong>
+						<ul>
+							<li>Should be in context</li>
+							<li>Should be "glancable"</li>
 						</ul>
 					</li>
 		    </article>	
@@ -596,6 +862,8 @@ public class ListenerService extends WearableListenerService {
 					<li>https://nest.com/thermostat/life-with-nest-thermostat</li>
 					<li>https://www.fitbit.com/chargehr#i.kiykairlzern10</li>
 					<li>http://www.fastcompany.com/most-innovative-companies/2014/philips</li>
+					<li>http://developer.android.com/</li>
+					<li>Professional Android Wearables by David Cuartielles Ruiz and Andreas Goransson</li>
 				</ul>	
 		    </article>	
     </article>
