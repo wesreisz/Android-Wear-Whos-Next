@@ -203,7 +203,7 @@ URL: https://code.google.com/p/io-2012-slides
 	     	<li>Basics of Android Wear and how it works</li>
 			<li>Look at how Android Notifications work with Android Wear</li>
 			<li>How do I get up and running with a simple app that creates a basic WatchFace for wear</li>
-			<li>Breakdown creating a more complex app</li>
+			<li>Breakdown creating a more complex app that leverages cloud, Android/Android Wear, and MEAN stack</li>
 	    </ul>
 	  </article>
   </slide>
@@ -353,7 +353,6 @@ URL: https://code.google.com/p/io-2012-slides
 				<li>3.) Update Layout and override AnalogClock (or DigitalClock)</li>
 				<li>4.) Update Android Manifest so the devices know's it supposed to be a watchface. (google_play_services_version, allowEmedded, and configure the intent filter)</li>
 				<li>5.) Deploy to emulator (or real device)</li>
-				<li>6.) Package and deploy</li>
 			</ol>
 			<center>
 				<img src="images/simple_face.png" />
@@ -399,7 +398,7 @@ URL: https://code.google.com/p/io-2012-slides
 	      <h2>Android Notifications</h2>
 	 </hgroup>
     <article>
-		Navigating Cue Card (OK Google):<br /><br />
+		Standard Android Notification:<br /><br />
 		<div style="text-align:center">
 			<img src="images/notification.png" />
 		</div>	
@@ -414,26 +413,26 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
 	    <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
-	NotificationCompat.WearableExtender wearFeatures =
-	     new NotificationCompat.WearableExtender();
-	wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
-	wearFeatures.addPages(addPages());
+NotificationCompat.WearableExtender wearFeatures =
+     new NotificationCompat.WearableExtender();
+wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
+wearFeatures.addPages(addPages());
 
-	Notification notification =
-	    new NotificationCompat.Builder(v.getContext())
-	        .setSmallIcon(android.R.drawable.btn_star)
-	        .setContentTitle("Hey! Over here...")
-	        .setContentText("Hello Prairie Dev Con, this is my Notification!")
-	        .extend(wearFeatures)
-	        .addAction(android.R.drawable.ic_menu_set_as,"Open", getDetailIntent(v))
-	        .addAction(android.R.drawable.ic_dialog_map, "Conf", getPendingMapIntent(v, CONF_LOCATION))
-	        .addAction(android.R.drawable.ic_dialog_map, "Yum", getPendingMapIntent(v, YUM_LOCATION))
-	        .setPriority(NotificationCompat.PRIORITY_HIGH)
-	        .build();
-	NotificationManager mNotifyMgr =
-	        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+Notification notification =
+    new NotificationCompat.Builder(v.getContext())
+        .setSmallIcon(android.R.drawable.btn_star)
+        .setContentTitle("Hey! Over here...")
+        .setContentText("Hello Prairie Dev Con, this is my Notification!")
+        .extend(wearFeatures)
+        .addAction(android.R.drawable.ic_menu_set_as,"Open", getDetailIntent(v))
+        .addAction(android.R.drawable.ic_dialog_map, "Conf", getPendingMapIntent(v, CONF_LOCATION))
+        .addAction(android.R.drawable.ic_dialog_map, "Yum", getPendingMapIntent(v, YUM_LOCATION))
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .build();
+NotificationManager mNotifyMgr =
+        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-	mNotifyMgr.notify(1, notification);
+mNotifyMgr.notify(1, notification);
 			</pre>
 	    </article>
   </slide>
@@ -447,15 +446,15 @@ URL: https://code.google.com/p/io-2012-slides
 	    <article class="smaller">
 			<pre class="prettyprint swapCode" data-lang="Java (Android)">
 private List<Notification> addPages(){
-		List<Notification> pages = new ArrayList<Notification>();
-		for( int i = 1; i <= 2; i++ ){
-		    Notification notification = new NotificationCompat.Builder(this)
-		            .setContentTitle("Page " + i)
-		            .setContentText("Text for page " + i)
-		            .build();
-		    pages.add(notification);
-		}
-        return pages;
+	List<Notification> pages = new ArrayList<Notification>();
+	for( int i = 1; i <= 2; i++ ){
+	    Notification notification = new NotificationCompat.Builder(this)
+	            .setContentTitle("Page " + i)
+	            .setContentText("Text for page " + i)
+	            .build();
+	    pages.add(notification);
+	}
+	return pages;
 }
 	
 private PendingIntent getPendingMapIntent(View v, String location){
@@ -469,6 +468,22 @@ private PendingIntent getPendingMapIntent(View v, String location){
 			</pre>
 	    </article>
   </slide>
+
+ <slide>
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+
+    <hgroup>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
+			Extended Android Notification:<br />
+			<div style="text-align:center">
+					<img src="images/notificationExtended.png" />
+			</div>
+	    </article>	
+    </article>
+  </slide>
+
 
   <slide class="fill nobackground" style="background-image: url(images/demo.png)">
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
@@ -875,7 +890,7 @@ protected void onCreate(Bundle savedInstanceState) {
 				<li>4.) Update Android Manifest so the devices know's it supposed to be a watchface. (google_play_services_version, allowEmedded, and configure the intent filter)</li>
 				<li>5.) Setup GoogleAPIClient on Wear and send Messages</li>
 				<li>6.) Setup BroadcastListener to receive messages</li>
-				<li>7.) Update Watchface</li>
+				<li>7.) Update Application Scope</li>
 				<li>8.) Setup project on Google Cloud</li>
 				<li>9.) Create a Compute instance and deploy MEAN Template</li>
 				<li>10.) Develop ReST Service and push to compute</li>
@@ -906,6 +921,18 @@ protected void onCreate(Bundle savedInstanceState) {
 	     <article>
 				<ul class="build">
 					<li>		
+						<strong>Think about how you design for wear</strong>
+						<a href="https://developer.android.com/design/wear/principles.html">https://developer.android.com/design/wear/principles.html</a>
+						<ul>
+							<li>Should be in context</li>
+							<li>Focus on not stopping the user and all else will follow (Should be "glanceable")</li>
+							<li>Design for big gestures</li>
+							<li>Do one thing, really fast</li>
+							<li>Don’t be a constant shoulder tapper</li>
+						</ul>
+						
+					</li>
+					<li>		
 						<strong>Battery</strong>
 						<ul>
 							<li>Lasts about ~24 hours for me and my usage (getting better!!!)</li>
@@ -914,24 +941,14 @@ protected void onCreate(Bundle savedInstanceState) {
 					<li>		
 						<strong>API's are easy to use</strong>
 						<ul>
-							<li>Did not get into alot of the API's, but the ones I did was solid and easy to use and are pretty well documents</li>
-							<li>Notifications are simple and easy to extend an existing app to wear/li>
+							<li>Great Documentation</li>
+							<li>Notifications are simple and extend existing methods into wearables</li>
 						</ul>
 					</li>
 					<li>		
 						<strong>It's just Android</strong>
-						<ul>
-							<li>Boil it down... it's just Android</li>
-							<li>Same concepts apply; however, ...</li>
-						</ul>
 					</li>
-					<li>		
-						<strong>Think about how you design for wear</strong>
-						<ul>
-							<li>Should be in context</li>
-							<li>Should be "glanceable"</li>
-						</ul>
-					</li>
+					
 		    </article>	
     </article>
   </slide>
