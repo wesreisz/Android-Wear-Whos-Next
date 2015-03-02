@@ -11,6 +11,7 @@
         android:theme="@android:style/Theme.DeviceDefault" >
         <activity
             android:name=".MainActivity"
+            android:allowEmbedded="true"
             android:label="@string/app_name">
             <meta-data
                 android:name="com.google.android.clockwork.home.preview"
