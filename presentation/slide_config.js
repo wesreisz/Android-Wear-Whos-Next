@@ -1,8 +1,8 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Android Wear: Who\'s Next',
-    subtitle: 'Kick\'n it with Android Wear <br />http://reisz-whos-next.appspot.com',
+    title: 'Android Wear: Who\'s Next',           
+    subtitle: 'Kick\'n it with Android Wear <br />http://android-wear-whos-next.appspot.com',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.

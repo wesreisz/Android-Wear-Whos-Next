@@ -8,11 +8,10 @@ and (max-width : 480px) {
 /* Styles */
 /* line 17, ../sass/phone.scss */
 slides > slide {
-  /*  width: $slide-width !important;
+    width: $slide-width !important;
     height: $slide-height !important;
     margin-left: -$slide-width / 2 !important;
-    margin-top: -$slide-height / 2 !important;
-  */
+    margin-top: -$slide-height / 2 +200!important;
   -webkit-transition: none !important;
   -webkit-transition: none !important;
   -moz-transition: none !important;

@@ -15,7 +15,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <!--This one seems to work all the time, but really small on ipad-->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
@@ -59,7 +59,8 @@ URL: https://code.google.com/p/io-2012-slides
 	    </span>
 		<aside class="note">
 	      <section style="font-size: 12pt !important">
-			  Google Buys Nest for $3.2 Billion
+			  2012-2017 Mobile Traffic will grow x13. Intell, http://www.intel.com/content/www/us/en/communications/internet-minute-infographic.htm<br />
+			  Google Buys Nest for $3.2 Billion<br />
 		  </section>
 	    </aside>
   </slide>	
@@ -206,9 +207,9 @@ URL: https://code.google.com/p/io-2012-slides
 	 <article>
 		<ul>
 	     	<li>Basics of Android Wear and how it works</li>
-			<li>Look at how Android Notifications work with Android Wear</li>
 			<li>How do I get up and running with a simple app</li>
-			<li>Breakdown creating a more complex app that leverages cloud, Android/Android Wear, and MEAN stack</li>
+			<li>Look at how Android Notifications work with Android Wear</li>
+			<li>Communication between wear and mobile by breakdown creating a more complex app that leverages cloud, Android/Android Wear, and MEAN stack</li>
 	    </ul>
 	  </article>
   </slide>
@@ -313,8 +314,8 @@ URL: https://code.google.com/p/io-2012-slides
 		
 			<ul>
 				<li>Create Emulator & Start Wear Emulator <br />(emulator -avd Android_Wear_Round_API_21 -netspeed full -netdelay none)</li>
-				<li>Connect Phone via USB</li>
 				<li>Install Android Wear App from Android Market</li>
+				<li>Connect Phone via USB</li>
 				<li>Enable Development Mode and USB Debugging Both devices</li>
 				<li>Forward ports (adb -d forward tcp:5601 tcp:5601)</li>
 				<li>List devices (adb devices)</li>
@@ -335,14 +336,6 @@ URL: https://code.google.com/p/io-2012-slides
        <img src="images/simple_face.png" />
 
     </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <hgroup>
-      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
-    </hgroup>
   </slide>
 
   <slide>
@@ -507,85 +500,62 @@ private PendingIntent getPendingMapIntent(View v, String location){
   		<q class="black">Let's do something a bit more substantial. How do you make wear communicate with another device over bluetooth?'</q>
     </article>
   </slide>
-
- <slide>
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <hgroup>
-      <h2>Who's Next</h2>
-    </hgroup>
-	    <article>
-			First, using the sample application for the Watch Face, we create a true custom watchface.
-			<div style="text-align:center">
-					<img src="images/watchface.png" />
-			</div>
-	    </article>	
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <hgroup>
-      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
-    </hgroup>
-  </slide>
-
- <slide>
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <hgroup>
-      <h2>Who's Next</h2>
-    </hgroup>
-	    <article>
-			<p>Let's develop a wear application that communicate with your Android phone. To make it more interesting, let's
-				call a ReST service on Compute Engine using the MEAN Stack template.</p>
-			
-     	<span class="build">
-	     	<img id="li-image5" src="/images/wear.png">
-	        <img id="li-image1" src="/images/bolt.png">
-	 		<img id="li-image2" src="/images/nexus.png">
-	 		<img id="li-image4" src="/images/compute.png">
-			<img id="li-image3" src="/images/bolt.png">
-	    </span>
-    </article>
-  </slide>
-
+  
   <slide>
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+ 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
-    <hgroup>
-      <h2>Stack</h2>
-    </hgroup>
-	    <article>
-			<ul class="build">
-				<li>
-					<strong>Wear</strong>
-					<ul>
-						<li>Moto 360</li>
-						<li>Android Wear: 5.0.2 (API 21)</li>
-						<li>Jackson: 2.1</li>
-					</ul>
-				</li>
-				<li>		
-					<strong>Android (Phone)</strong>
-					<ul>
-						<li>Nexus 5</li>
-						<li>Android Wear 5.0.1: (API 21)</li>
-						<li>Play Services Wearable</li>	
-						<li>Jackson: 2.1</li>
-					</ul>
-				</li>
-				<li>
-					<strong>Compute (GCloud)</strong>
-					<ul>
-						<li>Node.js/Express</li>
-						<li>MongoDB</li>	
-					</ul>
-				</li>	
-	    </article>
-  </slide>
-
+     <hgroup>
+       <h2>Who's Next</h2>
+     </hgroup>
+ 	    <article>
+ 			<p>Let's develop a wear application that communicate with your Android phone. To make it more interesting, let's
+ 				call a ReST service on Compute Engine using the MEAN Stack template.</p>
+			
+      	<span class="build">
+ 	     	<img id="li-image5" src="/images/wear.png">
+ 	        <img id="li-image1" src="/images/bolt.png">
+ 	 		<img id="li-image2" src="/images/nexus.png">
+ 	 		<img id="li-image4" src="/images/compute.png">
+ 			<img id="li-image3" src="/images/bolt.png">
+ 	    </span>
+     </article>
+   </slide>
+   
+   <slide>
+ 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+     <hgroup>
+       <h2>Stack</h2>
+     </hgroup>
+ 	    <article>
+ 			<ul class="build">
+ 				<li>
+ 					<strong>Wear</strong>
+ 					<ul>
+ 						<li>Moto 360</li>
+ 						<li>Android Wear: 5.0.2 (API 21)</li>
+ 						<li>Jackson: 2.1</li>
+ 					</ul>
+ 				</li>
+ 				<li>		
+ 					<strong>Android (Phone)</strong>
+ 					<ul>
+ 						<li>Nexus 5</li>
+ 						<li>Android Wear 5.0.1: (API 21)</li>
+ 						<li>Play Services Wearable</li>	
+ 						<li>Jackson: 2.1</li>
+ 					</ul>
+ 				</li>
+ 				<li>
+ 					<strong>Compute (GCloud)</strong>
+ 					<ul>
+ 						<li>Node.js/Express</li>
+ 						<li>MongoDB</li>	
+ 					</ul>
+ 				</li>	
+ 	    </article>
+   </slide>
+   
   <slide>
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
@@ -620,6 +590,30 @@ private PendingIntent getPendingMapIntent(View v, String location){
 				</tr>	
 			</table>	
 	    </article>	
+  </slide>
+
+
+ <slide>
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
+			First, using the sample application for the Watch Face, we create a true custom watchface.
+			<div style="text-align:center">
+					<img src="images/watchface.png" />
+			</div>
+	    </article>	
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
+    </hgroup>
   </slide>
 
  <slide>
@@ -947,7 +941,7 @@ protected void onCreate(Bundle savedInstanceState) {
 					<li>		
 						<strong>API's are easy to use</strong>
 						<ul>
-							<li>Great Documentation</li>
+							<li>Great Documentation: Checkout the Samples</li>
 							<li>Notifications are simple and extend existing methods into wearables</li>
 						</ul>
 					</li>
