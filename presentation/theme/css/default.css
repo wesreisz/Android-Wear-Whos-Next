@@ -945,20 +945,22 @@ aside.gdbar {
     -ms-border-radius: 0 10px 10px 0;
     -o-border-radius: 0 10px 10px 0;
     border-radius: 0 10px 10px 0;
-    background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #e6e6e6), color-stop(100%, #e6e6e6)) no-repeat;
-    background: -webkit-linear-gradient(left, #e6e6e6,#e6e6e6) no-repeat;
-    background: -moz-linear-gradient(left, #e6e6e6,#e6e6e6) no-repeat;
-    background: -o-linear-gradient(left, #e6e6e6,#e6e6e6) no-repeat;
-    background: linear-gradient(left, #e6e6e6,#e6e6e6) no-repeat;
+    background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #333333), color-stop(100%, #333333)) no-repeat;
+    background: -webkit-linear-gradient(left, #333333,#333333) no-repeat;
+    background: -moz-linear-gradient(left, #333333,#333333) no-repeat;
+    background: -o-linear-gradient(left, #333333,#333333) no-repeat;
+    background: linear-gradient(left, #333333,#333333) no-repeat;
     -webkit-background-size: 0% 100%;
     -moz-background-size: 0% 100%;
     -o-background-size: 0% 100%;
     background-size: 0% 100%;
+    /*
     -webkit-transition: all 0.5s ease-out;
     -webkit-transition-delay: 0.5s;
     -moz-transition: all 0.5s ease-out 0.5s;
     -o-transition: all 0.5s ease-out 0.5s;
     transition: all 0.5s ease-out 0.5s;
+    */
 }
 aside.gdbar.right {
     right: 0;
@@ -986,7 +988,7 @@ aside.gdbar.bottom {
 aside.gdbar img {
     position: absolute;
     right: 0;
-    margin: 10px 30px 10px 10px;
+    margin: 15px 10px 15px 10px;
 }
 .title-slide hgroup { bottom: 100px }
 .title-slide hgroup h1 {
@@ -1109,6 +1111,56 @@ aside.gdbar img {
 	left:450px;
 }
 
+#li-image18{
+    position: absolute; 
+    bottom:50px; 
+    right:130px; 
+    -ms-transform:rotate(15deg);
+    -webkit-transform:rotate(15deg);
+}
+
+/*story*/
+#li-image-story1{
+    position: absolute; 
+    top:100px; 
+    left:10px;
+}
+#li-image-story2{
+    position: absolute; 
+    top:150px; 
+    left:250px;
+}
+#li-image-story3{
+    position: absolute; 
+    top:100px; 
+    left:400px;
+}
+#li-image-story4{
+    position: absolute; 
+    top:150px; 
+    left:650px;
+}
+#li-image-story5{
+    position: absolute; 
+    top:80px; 
+    left:820px;
+}
+#li-image-story6{
+    position: absolute; 
+    top:350px; 
+    left:30px;
+}
+
+#sales-wear{
+    position: absolute; 
+    width: 550px;
+    top:40px; 
+    left:450px;
+}
+.box{
+    border: 1px solid black;
+    padding: 20px;
+}
 
 
 /* load order for wear stack*/
@@ -1165,6 +1217,36 @@ aside.gdbar img {
 	top:180px; 
 	right:50px;
 }
+#bigdata-worth{
+    position: absolute; 
+    top:400px; 
+    left: 100px;
+    width: 300px;
+    color: red;
+    text-align: center;
+}
+#highlight-section{
+    position: absolute; 
+    top:210px; 
+    left:-370px;
+}
+#highlight-code1{
+    position: absolute; 
+    top:00px; 
+    left:100px;
+    transform:rotate(110deg);
+    -ms-transform:rotate(110deg);
+    -webkit-transform:rotate(110deg)
+}
+#highlight-code2{
+    position: absolute; 
+    top:200px; 
+    left:100px;
+    transform:rotate(110deg);
+    -ms-transform:rotate(110deg);
+    -webkit-transform:rotate(110deg)
+}
+
 @media print { 
     slides slide {
         display: block !important;
