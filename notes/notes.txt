@@ -1,0 +1,9 @@
+#commandline spin up logcat for different projects
+adb -e logcat -s "whos_next"
+adb -d logcat -s "whos_next"
+
+#commandline spin up phone emulator
+/Users/wesleyreisz/android-sdks/tools/emulator -avd Nexus_5_API_21 -netspeed full -netdelay none
+
+#forward from emulator to usb wired device
+adb -d forward tcp:5601 tcp:5601

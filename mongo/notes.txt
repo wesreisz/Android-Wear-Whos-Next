@@ -38,8 +38,16 @@ db.teamlist.find({nickname : 'Cards' }, {schedule: {$elemMatch: { date : {$gte:n
 db.collection('userlist').save()
 
 //remove by id
-db.collection('userlist').removeById
+db.teamlist.remove( {"_id": ObjectId("544451c7737b2341f5bac191")});
 
+//remove all
 //db.teamlist.drop()
+
+//installing on the server for gcloud required:
+sudo apt-get install gcc make build-essential
+
+//home directory for the grunt install was in 
+/opt
+
 
 

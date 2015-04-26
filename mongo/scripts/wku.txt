@@ -1,0 +1,19 @@
+db.teamlist.insert({
+	"team" : "Western Kentucky University",
+	"nickname" : "Hilltoppers",
+	"warcry" : "Hilltoppers",
+	"hometown" : "Bowling Green, Kentucky",
+	"logo" : "wku.png",
+	"helmet" : "",
+	"schedule" :[
+	      {
+	         "team":"Vanderbilt",
+	         "nickname":"Commodores",
+	         "logo":"https://mlbreports.files.wordpress.com/2011/08/vanderbilt.jpg",
+	         "helmet":"",
+	         "date":new Date("2015-09-05"),
+	         "time":"12:00PM",
+	         "location":"@Vanderbilt"
+	      }
+	   ]
+});
