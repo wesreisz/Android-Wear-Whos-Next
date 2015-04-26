@@ -13,7 +13,7 @@
     "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
     "jade": "*",
-    "mongodb": "*",
-    "mongoskin": "*"
+    "mongodb": "~1.4",
+    "mongoskin": "1.4.13"
   }
 }

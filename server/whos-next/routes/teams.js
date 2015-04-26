@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET team listing. */
 router.get('/', function(req, res) {
   	var db = req.db;
-    db.collection('teamlist').find({},{'schedule':0}).sort({"name":1}).toArray(function (err, items) {
+        db.collection('teamlist').find({},{'schedule':0}).sort({'team':1}).toArray(function (err, items) {
         res.json(items);
     });
 });
