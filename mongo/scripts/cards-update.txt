@@ -1,0 +1,14 @@
+db.teamlist.update({"nickname" : "Cards"},
+	{"$addToSet" : 
+		{"schedule": {
+		         "team":"Auburn",
+		         "nickname":"Tigers",
+		         "logo":"http://blog.firstfoodbank.org/wp-content/uploads/2011/01/university-of-auburn-logo.gif",
+		         "helmet":"",
+		         "date":new Date("2015-09-05"),
+		         "time":"12:00PM",
+		         "location":"Atlanta, Georgia"
+		    }
+		}
+    });
+
