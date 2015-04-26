@@ -1,27 +1,25 @@
 extends layout
-
 block content
   h1= "Team Schedule API"
   ul
-    li 
-        Show All Schools: 
+    li
+        Show All Schools:
         a(href="/teams") "/teams"
     // /li
-    li 
-        Show School By Nickname: 
+    li
+        Show School By Nickname:
         a(href="/teams/nickname/Cards") "/teams/nickname/Cards"
     // /li
-    li 
-        Show School By Id: 
-        a(href="/teams/54ed3aae4b1f2cb5ffdb34c3") "/teams/<_id>"
+    li
+        Show School By Id:
+        a(href="/teams/553d19d9720e3b3d31c7b9aa") "/teams/<_id>"
     // /li
-    li 
-        Show School's Next Opponent By Nickname: 
+    li
+        Show School's Next Opponent By Nickname:
         a(href="/teams/nickname/Cards/next") "/teams/nickname/Cards/next"
     // /li
-    li 
-        Show School's Next Opponent By Id: 
-        a(href="/teams/54ed3aae4b1f2cb5ffdb34c3/next") "/teams/<_id>/next"
+    li
+        Show School's Next Opponent By Id:
+        a(href="/teams/553d19d9720e3b3d31c7b9aa/next") "/teams/<_id>/next"
     // /li
   // /ul
-

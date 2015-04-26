@@ -33,6 +33,8 @@ db.teamlist.find({nickname : 'Cards' }, {schedule: {$elemMatch: { nickname : 'Ca
 
 //return next team on louisville's schedule
 db.teamlist.find({nickname : 'Cards' }, {schedule: {$elemMatch: { date : {$gte:new Date()}} }}).pretty()
+//errorring
+db.teamlist.find({nickname : 'Cards', 'schedule': {$elemMatch: { date : {$gte:new Date()}} }}).pretty();
 
 //update or insert, based on _id being present
 db.collection('userlist').save()
@@ -49,5 +51,7 @@ sudo apt-get install gcc make build-essential
 //home directory for the grunt install was in 
 /opt
 
+//keep server running
+root@mean-co93:/opt/Android-Wear-Whos-Next/server/whos-next# forever start -c "npm start" ./
 
 
