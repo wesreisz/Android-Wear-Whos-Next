@@ -110,10 +110,11 @@ URL: https://code.google.com/p/io-2012-slides
 
 		<br />
 		<ul class="build">
-			<span class="black" style="position:relative; left:-50px;">Gartner Press Release Says...<br />
+			<span class="black" style="position:relative; left:-50px;">IoT Estimates...<br />
 			(http://www.gartner.com/newsroom/id/2905717)<br /><br /></span>
  			<li class="black">4.9 Billion Connected "Things" Will Be in Use in 2015... </li>
-			<li class="black">In 2020, 25 Billion Connected "Things" Will Be in Use</li>
+			<li class="black">25 Billion Connected "Things" Will Be in Use by 2020...</li>
+			<li class="black">That's alot of things!!!</li>
 
 		</ul>
     </article>
@@ -226,7 +227,7 @@ URL: https://code.google.com/p/io-2012-slides
 	    </article>	
 	    <div id="sales-wear"  class="build">
 			<div>
-	    		 <b>Pebble Kickstarter:</b> $100,000: Within two hours of going live, the project had met the $100,000 goal, and within six days, the project had become the most funded project in the history of Kickstarter to that point, raising over $4.7 million with 30 days left in the campaign. On May 18, 2012, funding closed with $10,266,844 pledged by 68,928 people.<br /><br />
+	    		 <b>Pebble Kickstarter:</b> Met $100,000 goal within two hours of going live and within six days, the project had become the most funded project in the history of Kickstarter to that point, raising over $4.7 million with 30 days left in the campaign. On May 18, 2012, funding closed with $10,266,844 pledged by 68,928 people.<br /><br />
 			</div>
 			<div>
 	    		<b>Android Sales:</b> "Over 720,000 Android Wear devices shipped in 2014." - Canalys <br /><br />
@@ -439,7 +440,15 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-    <slide class="segue quote nobackground">
+  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
+    </hgroup>
+  </slide>
+
+  <slide class="segue quote nobackground">
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
     <article class="flexbox vleft auto-fadein" style="text-align: right;">
@@ -447,7 +456,7 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
- <slide>
+  <slide>
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
     <hgroup>
@@ -466,6 +475,9 @@ URL: https://code.google.com/p/io-2012-slides
 
 	mNotifyMgr.notify(1, notification);
 			</pre>
+			<div width="100%" style="text-align:center">
+				<img src="images/simple-notification.png" />
+			</div>
 	    </article>
   </slide>
 
@@ -599,9 +611,7 @@ private PendingIntent getPendingMapIntent(View v, String location){
 				<li>1.) Create a project in Android Studio (include both a wear and mobile project)</li>
 				<li>2.) Add our resources</li>
 				<li>3.) Update Layout and override AnalogClock (or DigitalClock)</li>
-				<li>4.) Update Android Manifest (google_play_services_version, allowEmedded, and 
-					configure the intent filter)</li>
-				<li>5.) Deploy to emulator (or real device)</li>
+				<li>4.) Deploy to emulator (or real device)</li>
 			</ol>
 			<center>
 				<img src="images/simple_face.png" />
@@ -610,25 +620,7 @@ private PendingIntent getPendingMapIntent(View v, String location){
     </article>
   </slide>
 
-
-  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <hgroup>
-      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
-    </hgroup>
-  </slide>
-
-
-  <slide class="segue quote nobackground">
-	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
-	
-    <article class="flexbox vleft auto-fadein" style="text-align: right;">
-  		<q class="black">Let's do something a bit more substantial. How do you make wear communicate with another device over bluetooth?'</q>
-    </article>
-  </slide>
-
-     <slide>
+  <slide>
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
 	<hgroup>
@@ -679,6 +671,38 @@ private PendingIntent getPendingMapIntent(View v, String location){
 			</ul>
 			<a href="http://android-wear-docs.readthedocs.org/en/latest/explore.html">http://android-wear-docs.readthedocs.org/en/latest/explore.html</a>
 			
+    </article>
+  </slide>
+
+
+  <slide class="fill nobackground" style="background-image: url(images/demo.png)">
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
+    </hgroup>
+    <aside class="note">
+	      <section >
+		       <ol>
+		       	<li>Create Project</li>
+		       	<li>Replace TextView... all of it</li>
+		       	<li>Add Analog Clock... make sure to name it</li>
+		       	<li>Copy Resources in</li>
+		       	<li>Stub.findViewById(R.id.clock)</li>
+		       	<li>Create an event listener for the click event with a Toast</li>
+		       	<li> Toast toast = Toast.makeText(MainActivity.this, "Clicked", Toast.LENGTH_LONG);
+                     toast.show();</li>
+		       </ol>
+		  </section>
+	    </aside>
+  </slide>
+
+
+  <slide class="segue quote nobackground">
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <article class="flexbox vleft auto-fadein" style="text-align: right;">
+  		<q class="black">Let's do something a bit more substantial. How do you make wear communicate with another device over bluetooth?'</q>
     </article>
   </slide>
 
@@ -1167,13 +1191,12 @@ protected void onCreate(Bundle savedInstanceState) {
   <slide class="thank-you-slide dark nobackground">
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
     <aside class="gdbar right"><img src="images/cpl-15-sml.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <h2>Thank You!</h2>
-	  <p>Wesley Reisz</p>
-	  <p class="auto-fadein" data-config-contact>
-      </p>
-    </article>
-    
+	    <article class="flexbox vleft auto-fadein">
+	      <h2>Thank You!</h2>
+		  <p>Wesley Reisz</p>
+		  <p class="auto-fadein" data-config-contact>
+	      </p>
+	    </article>
   </slide>
 
 

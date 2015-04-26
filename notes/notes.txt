@@ -5,5 +5,8 @@ adb -d logcat -s "whos_next"
 #commandline spin up phone emulator
 /Users/wesleyreisz/android-sdks/tools/emulator -avd Nexus_5_API_21 -netspeed full -netdelay none
 
+#commandline spin up wear emulator
+/Users/wesleyreisz/android-sdks/tools/emulator -netdelay none -netspeed full -avd Android_Wear_Round_API_21
+
 #forward from emulator to usb wired device
 adb -d forward tcp:5601 tcp:5601

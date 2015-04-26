@@ -72,8 +72,27 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             @Override
             public void onClick(View v) {
                 updateWearable(v.getContext());
+                sendNotification(v);
             }
         });
+    }
+
+    private void sendNotification(View v) {
+        NotificationCompat.WearableExtender wearFeatures =
+                new NotificationCompat.WearableExtender();
+        wearFeatures.setBackground(BitmapFactory.decodeResource(getResources(),R.drawable.red_yum));
+
+        Notification notification =
+                new NotificationCompat.Builder(v.getContext())
+                        .setSmallIcon(android.R.drawable.btn_star)
+                        .setContentTitle("Great News!")
+                        .setContentText("We found your team's next opponent.")
+                        .extend(wearFeatures)
+                        .build();
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        mNotifyMgr.notify(1, notification);
     }
 
     @Override

@@ -13,13 +13,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class NotificationActivity extends Activity {
-    private static final String CONF_LOCATION = "1405 St. Matthews Ave Winnipeg, MB R3G 0K5";
+    private static final String CONF_LOCATION = "221 S 4th St, Louisville, KY 40202";
     private static final String YUM_LOCATION = "1 Arena Plaza, Louisville, KY 40202";
 
     @Override
@@ -40,7 +41,7 @@ public class NotificationActivity extends Activity {
                     new NotificationCompat.Builder(v.getContext())
                         .setSmallIcon(android.R.drawable.btn_star)
                         .setContentTitle("Hey! Over here...")
-                        .setContentText("Hello Prairie Dev Con, this is my Notification!")
+                        .setContentText("Hello CodepaLOUsa, this is my Notification!")
                         .extend(wearFeatures)
                         .addAction(android.R.drawable.ic_menu_set_as,"Open", getDetailIntent(v))
                         .addAction(android.R.drawable.ic_dialog_map, "Conf", getPendingMapIntent(v, CONF_LOCATION))
@@ -48,6 +49,9 @@ public class NotificationActivity extends Activity {
                         .build();
                 NotificationManager mNotifyMgr =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                Toast toast = Toast.makeText(v.getContext(),"Notification Sent", Toast.LENGTH_LONG);
+                toast.show();
 
                 mNotifyMgr.notify(1, notification);
             }

@@ -19,6 +19,11 @@ slides > slide {
   transition: none !important;
 }
 
+/*hide the iframe that plays video on phones*/
+#li-image16{
+  display:none;
+}
+
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /* Styles */

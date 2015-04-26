@@ -1247,6 +1247,13 @@ aside.gdbar img {
     -webkit-transform:rotate(110deg)
 }
 
+/*hide the iframe that plays video on phones*/
+@media all and (max-width: 479px) {
+    #li-image16{
+      display:none;
+    }
+}
+
 @media print { 
     slides slide {
         display: block !important;
