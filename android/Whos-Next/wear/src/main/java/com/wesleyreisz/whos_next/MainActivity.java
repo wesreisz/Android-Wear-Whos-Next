@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.widget.TextView;
 
+import com.google.android.gms.wearable.Wearable;
 import com.wesleyreisz.whos_next.model.Schedule;
 import com.wesleyreisz.whos_next.model.Team;
 import com.wesleyreisz.whos_next.util.DateUtil;

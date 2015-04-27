@@ -604,14 +604,15 @@ private PendingIntent getPendingMapIntent(View v, String location){
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
     <hgroup>
-      <h2>Simple Watchface</h2>
+      <h2>Simple Wear App</h2>
     </hgroup>
 	    <article>
 			<ol>
-				<li>1.) Create a project in Android Studio (include both a wear and mobile project)</li>
+				<li>1.) Create out project in Android Studio</li>
 				<li>2.) Add our resources</li>
 				<li>3.) Update Layout and override AnalogClock (or DigitalClock)</li>
-				<li>4.) Deploy to emulator (or real device)</li>
+				<li>4.) Add a trival event handler to fire events</li>
+				<li>5.) Deploy to emulator (or real device)</li>
 			</ol>
 			<center>
 				<img src="images/simple_face.png" />
@@ -850,7 +851,8 @@ protected void onCreate(Bundle savedInstanceState) {
 		sync.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View v) {
-		        updateWearable(v.getContext());
+		        updateWearable(v.getContext()); 
+		        sendNotification(v);
 		    }
 	});
 	...
@@ -1074,12 +1076,60 @@ protected void onCreate(Bundle savedInstanceState) {
 	    </article>
   </slide>
 
+  <slide>
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2>Who's Next</h2>
+    </hgroup>
+	    <article>
+			<div style="text-align:center">
+				<img src="images/action.png" />
+				<img src="images/message.png" />
+			</div>
+	    </article>	
+    </article>
+  </slide>
+
   <slide class="fill nobackground" style="background-image: url(images/demo.png)">
 	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
 	
     <hgroup>
       <h2 class="white italics" style="text-shadow: 1px 1px 1px #000;">Demo</h2>
     </hgroup>
+     <aside class="note">
+	      <section >
+		       <ol>
+		       	<li>Show http://gcloud.wesleyreisz.com:3000</li>
+		       	<li>Disconnect Moto360 to prevent confusion</li>
+		       	<li>Show Phone</li>
+		       	<li>Show Watch</li>
+		       	<li>Show Notification</li>
+		       	<li>Show Launcher</li>
+		       </ol>
+		  </section>
+	    </aside>
+  </slide>
+
+    <slide>
+	<a href="https://github.com/wesreisz/Android-Wear-Whos-Next"><img border="0" class="gitfork" src="/images/forkme_right_red_aa0000.png" width="149px" height="149px" /></a>
+	
+    <hgroup>
+      <h2>Nontrival Examples</h2>
+    </hgroup>
+	    <article>
+			<center>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="position: relative; left: -225px;">
+					<tr>
+						<td style="vertical-align:top"><img src="images/whos_next.png" /></td>
+						<td style="vertical-align:top"><img src="images/json.png" /></td>
+						<td style="vertical-align:top"><img src="images/watchface.png" /></td>
+						<td style="vertical-align:top"><img src="images/message.png" /></td>
+					</tr>	
+				</table>
+			</center>
+	    </article>	
+    </article>
   </slide>
 
   <slide>
@@ -1091,26 +1141,26 @@ protected void onCreate(Bundle savedInstanceState) {
 	    <article>
 			<ol>
 				<li>1.) Create a project in Android Studio (include both a wear and mobile project)</li>
-				<li>2.) Add our resources</li>
-				<li>3.) Update Layout and override AnalogClock (or DigitalClock)</li>
-				<li>4.) Update Android Manifest so the devices know's it supposed to be a watchface. (google_play_services_version, allowEmedded, and configure the intent filter)</li>
-				<li>5.) Setup GoogleAPIClient on Wear and send Messages</li>
-				<li>6.) Setup BroadcastListener to receive messages</li>
-				<li>7.) Update Application Scope</li>
-				<li>8.) Setup project on Google Cloud</li>
-				<li>9.) Create a Compute instance and deploy MEAN Template</li>
-				<li>10.) Develop ReST Service and push to compute</li>
-				<li>11.) Develop Android app and call ReST service on compute</li>
-				<li>13.) Marshal/unmarshal json between devices</li>
-				<li>14.) Package and Deploy</li>
+				<li>2.) Update Layout and override AnalogClock (or DigitalClock)</li>
+				<li>3.) Update Android Manifest so the devices know's it supposed to be a watchface. (google_play_services_version, allowEmedded, and configure the intent filter)</li>
+				<li>4.) Setup GoogleAPIClient on Wear and send Messages (had some confusion between devices when multiple were connected).</li>
+				<li>5.) Setup WearableListenerService to receive messages on the Wear Side</li>
+				<li>6.) Updated Application Scope</li>
+				<li>7.) Create a Google Cloud Compute instance and deploy MEAN Template</li>
+				<li>8.) Develop ReST Service and push to compute</li>
+				<li>9.) Develop Android app and call ReST service on compute</li>
+				<li>10.) Leverage the Wearable.NodeApi to send bluetooth messages between</li>
+				<li>11.) Marshal/unmarshal json between devices</li>
+				<li>12.) Package and Deploy</li>
 			</ol>
 			<br />
 			<center>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="position: relative; left: -225px;">
 					<tr>
-						<td style="vertical-align:top"><img src="images/watchface.png" /></td>
 						<td style="vertical-align:top"><img src="images/whos_next.png" /></td>
 						<td style="vertical-align:top"><img src="images/json.png" /></td>
+						<td style="vertical-align:top"><img src="images/watchface.png" /></td>
+						<td style="vertical-align:top"><img src="images/message.png" /></td>
 					</tr>	
 				</table>
 			</center>

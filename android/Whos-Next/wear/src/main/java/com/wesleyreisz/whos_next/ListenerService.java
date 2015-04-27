@@ -1,7 +1,5 @@
 package com.wesleyreisz.whos_next;
 
-import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -229,6 +229,9 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     }
 
     private void updateWearable(Context context){
+        //when multiple clients were connected, both did not
+        //receive the connection client. This needs to be looked
+        //at closer. -wtr
         googleClient = new GoogleApiClient.Builder(context)
                 .addApi(Wearable.API)
                 .addConnectionCallbacks(MainActivity.this)
@@ -293,8 +296,6 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             }
 
             mTxtMessage.setText("Received Data");
-
-
         }
     }
 }
