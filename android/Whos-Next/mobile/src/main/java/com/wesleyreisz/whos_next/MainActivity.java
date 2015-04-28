@@ -50,6 +50,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
     private String selectedTeam;
     private List<String> teamNames = new ArrayList<String>();
     private Spinner spinner;
+    private Team mHomeTeam;
+    private String mOpponentName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +87,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
         Notification notification =
                 new NotificationCompat.Builder(v.getContext())
                         .setSmallIcon(android.R.drawable.btn_star)
-                        .setContentTitle("Great News!")
-                        .setContentText("We found your team's next opponent.")
+                        .setContentTitle("Schedule Update!")
+                        .setContentText(mHomeTeam.getTeam() + " plays " + mOpponentName + " next!")
                         .extend(wearFeatures)
                         .build();
         NotificationManager mNotifyMgr =
@@ -211,7 +213,8 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             textViewOpponentMessage.setText("Next Opponent:");
 
             TextView textViewOpponent = (TextView)findViewById(R.id.txtNextOpponent);
-            textViewOpponent.setText(team.getSchedule().get(0).getTeam());
+            mOpponentName = team.getSchedule().get(0).getTeam();
+            textViewOpponent.setText(mOpponentName);
 
             TextView textViewLocation = (TextView)findViewById(R.id.txtLocation);
             textViewLocation.setText(team.getSchedule().get(0).getLocation());
@@ -286,10 +289,10 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
             mMessageForDevice = results;
 
             ObjectMapper mapper = new ObjectMapper();
-            Team team;
+
             try {
-                team = mapper.readValue(results, Team.class);
-                buildNextOpponent(team);
+                mHomeTeam = mapper.readValue(results, Team.class);
+                buildNextOpponent(mHomeTeam);
                 updateWearable(MainActivity.this);
             } catch (IOException e) {
                 e.printStackTrace();
